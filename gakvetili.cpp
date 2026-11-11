@@ -1,35 +1,23 @@
-
 #include <iostream>
+
 using namespace std;
 
 int main() {
-    int number, digit;
-    cout << "Enter a number: ";
-    cin >> number;
-
-    cout << "Enter a digit to count: ";
-    cin >> digit;
-
-    int count = 0;
-    long long temp = number;
-
-    if (temp == 0) {
-        count = (digit == 0) ? 1 : 0;
-    } else {
-        if (temp < 0) temp = -temp;
-
-        while (temp > 0) {
-            if (temp % 10 == digit) {
-                count++;
-            }
+      cout << "palindrome" << endl;
+      int n;
+      cout << "Enter a number to check all palindromes from 1 to that number: ";
+      cin >> n;
+      for (int i = 1; i <= n; i++) {
+         int original = i;
+         int reversed = 0;
+         int temp = i;
+         while (temp > 0) {
+            reversed = reversed * 10 + temp % 10;
             temp /= 10;
-        }
-    }
-
-    cout << "The digit " << digit << " appears "
-         << count << " times in the number "
-         << number << endl;
-
-    return 0;
-}
-
+         }
+         if (original == reversed) {
+            cout << original << " is a palindrome." << endl;
+         }
+      }
+      return 0;
+   }
